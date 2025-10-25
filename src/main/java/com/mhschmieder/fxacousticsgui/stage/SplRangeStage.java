@@ -54,7 +54,7 @@ public final class SplRangeStage extends XStage {
     public SplRangePane splRangePane;
     
     // Flag for whether to allow extended SPL Range values.
-    protected final boolean useExtendedRange;
+    private final boolean useExtendedRange;
 
     public SplRangeStage( final ProductBranding pProductBranding,
                           final ClientProperties pClientProperties,
@@ -96,7 +96,7 @@ public final class SplRangeStage extends XStage {
     // Load the relevant actions for this Stage.
     @Override
     protected void loadActions() {
-        // Make all of the actions.
+        // Make all the actions.
         simulationActions = new SimulationActions( clientProperties );
     }
 
