@@ -30,8 +30,8 @@
  */
 package com.mhschmieder.fxacousticsgui.swing;
 
-import com.marineacoustics.jgui.component.DataViewXComponent;
 import com.mhschmieder.jacoustics.FrequencySignalUtilities;
+import com.mhschmieder.jgui.component.DataViewXComponent;
 
 import javax.swing.SwingConstants;
 import java.awt.Dimension;
