@@ -35,12 +35,6 @@ import com.mhschmieder.fxgraphics.paint.ColorUtilities;
 import com.mhschmieder.fxgui.util.GuiUtilities;
 import com.mhschmieder.jacoustics.FrequencySignalUtilities;
 import com.mhschmieder.jcommons.util.ClientProperties;
-import com.mhschmieder.jpdfreport.PdfFonts;
-import com.mhschmieder.jpdfreport.PdfTools;
-import com.pdfjet.Align;
-import com.pdfjet.PDF;
-import com.pdfjet.Page;
-import com.pdfjet.Point;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -169,11 +163,7 @@ public final class FrequencyRangeInformationPane extends VBox {
         _stopFrequencyLabel.setText( stopFrequencyLabel );
     }
 
-
-    public Point exportToPdf( final PDF document,
-                              final Page page,
-                              final Point initialPoint,
-                              final PdfFonts borderlessTableFonts ) throws Exception {
+    public String[] getFrequencyRangeInformation() {
         // Collect the information fields to render to a single-column table.
         final String[] information = new String[ 4 ];
         int i = 0;
@@ -181,15 +171,6 @@ public final class FrequencyRangeInformationPane extends VBox {
         information[ i++ ] = _centerFrequencyLabel.getText();
         information[ i++ ] = _startFrequencyLabel.getText();
         information[ i++ ] = _stopFrequencyLabel.getText();
-
-        // Write the Natural Environment Information Table, left-aligned.
-        final Point point = PdfTools.writeInformationTable( document,
-                                                            page,
-                                                            initialPoint,
-                                                            borderlessTableFonts,
-                                                            Align.LEFT,
-                                                            information );
-
-        return point;
+        return information;
     }
 }
